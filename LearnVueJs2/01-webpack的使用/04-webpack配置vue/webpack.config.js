@@ -49,7 +49,19 @@ module.exports = {
                         presets: ['es2015']
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                use: ['vue-loader']
             }
         ]
+    },
+    resolve:{
+        //resolve属性是一个对象
+        //alias 属性别名
+        extensions: ['.js','.css','.vue'],
+        alias:{
+            'vue$' : "vue/dist/vue.js"  //或 vue/dist/vue.js
+        }
     }
 }

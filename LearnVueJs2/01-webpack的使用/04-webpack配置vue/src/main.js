@@ -13,5 +13,17 @@ console.log(height);
 require('./css/normal.css');
 
 //4 依赖less文件
-require('./css/special.less');
-document.writeln('<h2>你好</h2>');
+//require('./css/special.less');
+//document.writeln('<h2>你好</h2>');
+
+//5 使用vue进行开发
+import Vue from 'vue'
+//import App from './vue/app.js'
+import App from './vue/App.vue'
+const app = new Vue({
+    el: '#app',
+    template:  '<app/>',
+    components: {
+        App
+    }
+})
