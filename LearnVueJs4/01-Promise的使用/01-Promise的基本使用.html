@@ -7,10 +7,67 @@
 <body>
 
 <script>
-  const name='why'
-  console.log(name)
+ // 1 使用setTimeout
+  /*setTimeout(() =>{
+      console.log("Hello world")
+  }, 1000)*/
 
-  const result = 3 + 5;
+  // 参数 -> 函数(resolve, reject)
+  //resolve, reject本身他们又是函数
+ //链式编程
+  /*new Promise((resolve,reject)=>{
+      //1 第一次网络请求的代码
+    setTimeout(()=>{
+        resolve()
+    },1000)
+  }).then(()=>{
+      // 第一次拿到结果的处理代码
+      console.log("Hello world")
+      console.log("Hello world")
+      console.log("Hello world")
+
+      return new Promise((resolve,reject)=>{
+          //第二次网络请求的代码
+          setTimeout(()=>{
+              resolve()
+          },1000)
+      })
+  }).then(()=>{
+      //第二次处理的代码
+      console.log('hello VueJs')
+      console.log('hello VueJs')
+      console.log('hello VueJs')
+      return new Promise((resolve,reject)=>{
+          //第三次网络请求的代码
+          setTimeout(()=>{
+              resolve()
+          })
+      })
+  }).then(()=>{
+      //第三次处理的代码
+      console.log('hello Html')
+      console.log('hello Html')
+      console.log('hello Html')
+  })*/
+  //什么情况下会用到promise?
+ // 一般情况下是有异步操作时，使用promise对这个异步操作进行封装
+ //new -> 构造函数(1 保存了一些状态信息 2 执行传入的函数)
+ // 在执行传入的回调函数时，会传入两个参数，resolve,reject,本身又是函数
+  new Promise((resolve,reject)=>{
+      setTimeout((data)=>{
+          //成功的时候调用resolve
+          resolve('helloworld')
+          //失败的时候调用reject
+          //reject('error message')
+      },1000)
+  }).then((data)=>{
+    // 1. 100行的处理代码
+      console.log(data);
+      console.log(data);
+      console.log(data);
+  }).catch((err) => {
+     console.log(err);
+  })
 </script>
 
 </body>
